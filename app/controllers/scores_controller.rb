@@ -1,10 +1,11 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: [:show, :edit, :update, :destroy]
+  before_action :set_type
 
   # GET /scores
   # GET /scores.json
   def index
-    @scores = Score.all
+    @scores = type_class.all
   end
 
   # GET /scores/1
@@ -70,5 +71,17 @@ class ScoresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def score_params
       params.require(:score).permit(:item_score, :type)
+    end
+
+    def set_type
+      @type = type
+    end
+
+    def type
+      params[:type] || "Score"
+    end
+
+    def type_class
+      type.constantize
     end
 end
