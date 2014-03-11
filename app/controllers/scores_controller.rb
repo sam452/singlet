@@ -15,7 +15,7 @@ class ScoresController < ApplicationController
 
   # GET /scores/new
   def new
-    @score = Score.new
+    @score = type_class.new
   end
 
   # GET /scores/1/edit
@@ -65,7 +65,7 @@ class ScoresController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_score
-      @score = Score.find(params[:id])
+      @score = type_class.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

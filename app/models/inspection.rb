@@ -1,3 +1,5 @@
 class Inspection < ActiveRecord::Base
-	delegate :videos to: :scores
+	has_many :scores
+	delegate :videos, to: :scores
+
 end

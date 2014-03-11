@@ -16,7 +16,8 @@
       <tr>
         <td><%= score.item_score %></td>
         <td><%= score.type %></td>
-        <td><%= link_to 'Show', score %></td>
+        <td><%= link_to 'Show', sti_score_path(score.type, score) %></td>
+        <td><%= link_to "See all #{score.type.pluralize}", sti_score_path(score.type) %></td>
         <td><%= link_to 'Edit', edit_score_path(score) %></td>
         <td><%= link_to 'Destroy', score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -25,5 +26,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Score', new_score_path %>
+<%= link_to 'See all the scores', sti_score_path %>
+<%= link_to "new #{@type}", sti_score_path(@type, nil, :new) %>

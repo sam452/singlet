@@ -1,3 +1,3 @@
 class Video < Score
-	scope :videos, -> { where(type: 'Video Review') }
-end
+	scope :videos, -> { where(type: 'Video') }
+endvideo
